@@ -8,7 +8,8 @@ This simulator mimics the Raspberry Pi video upload system that will run on the 
 
 ## What It Does
 
-- Generates test pattern video using FFmpeg (colorful bars with audio tone)
+- Generates test pattern video using FFmpeg (colorful test pattern (1280x720 @ 25fps)) with 1000Hz audio tone
+- Outputs HLS format (chunks every 2 seconds)
 - Splits video into HLS format (.ts chunks + .m3u8 playlist)
 - Continuously uploads new chunks to Google Cloud Storage
 - Simulates exactly what the Raspberry Pi will do on the real drone
@@ -44,3 +45,10 @@ This simulator mimics the Raspberry Pi video upload system that will run on the 
 ```bash
    chmod +x start_stream.sh
 ```
+
+
+5. VLC Media Player
+1. Open VLC
+2. File → Open Network Stream
+3. Enter: `https://raspi-stream-530875888927.us-east1.run.app/playlist.m3u8`
+4. You should see the test pattern!
